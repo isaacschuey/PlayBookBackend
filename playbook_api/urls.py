@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('mlb/games', views.mlb_games),
-    path('nba/games', views.nba_games),
+    path('nba/games/live', views.nba_live_games),
+    path('nba/games/schedule', views.nba_schedule_games),
     path('nhl/games', views.nhl_games),
     path('mlb/players/hitting', views.mlb_players_hitting),
     path('mlb/players/pitching', views.mlb_players_pitching),

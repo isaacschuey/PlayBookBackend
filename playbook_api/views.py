@@ -14,7 +14,13 @@ def mlb_games(req: Request) -> Response:
     return Response(response.json())
 
 @api_view(['GET'])
-def nba_games(req: Request) -> Response:
+def nba_live_games(req: Request) -> Response:
+    url = "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+    response = requests.get(url)
+    return Response(response.json())
+
+@api_view(['GET'])
+def nba_schedule_games(req: Request) -> Response:
     url = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
     response = requests.get(url)
     return Response(response.json())
