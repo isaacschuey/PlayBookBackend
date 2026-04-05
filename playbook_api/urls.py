@@ -9,5 +9,6 @@ urlpatterns = [
     path('mlb/players/hitting', views.mlb_players_hitting),
     path('mlb/players/pitching', views.mlb_players_pitching),
     path('nba/players', views.nba_players),
-    path('nhl/players', views.nhl_players)
+    path('nhl/players', views.nhl_players),
+    path('mlb/teams', views.mlb_teams)
 ]

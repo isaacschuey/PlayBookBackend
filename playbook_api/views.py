@@ -62,3 +62,9 @@ def nhl_players(req: Request) -> Response:
     url = "https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22:%22points%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22gamesPlayed%22,%22direction%22:%22ASC%22%7D,%7B%22property%22:%22playerId%22,%22direction%22:%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId=2%20and%20seasonId%3C=20252026%20and%20seasonId%3E=20252026"
     response = requests.get(url)
     return Response(response.json())
+
+@api_view(['GET'])
+def mlb_teams(req: Request) -> Response:
+    url = "https://bdfed.stitch.mlbinfra.com/bdfed/transform-mlb-standings?standingsView=division&season=2026&leagueIds=103&leagueIds=104&standingsTypes=regularSeason&date=2026-04-05&sortDivisions=201,202,200,204,205,203&sortLeagues=103,104,115,114&sortSports=1"
+    response = requests.get(url)
+    return Response(response.json())
