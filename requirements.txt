@@ -14,3 +14,4 @@ types-PyYAML==6.0.12.20250915
 typing_extensions==4.15.0
 tzdata==2025.3
 urllib3==2.6.3
+nba_api==1.11.4

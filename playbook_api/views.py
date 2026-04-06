@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import requests
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
@@ -63,8 +65,27 @@ def nhl_players(req: Request) -> Response:
     response = requests.get(url)
     return Response(response.json())
 
+"""
+Team API endpoints
+"""
 @api_view(['GET'])
 def mlb_teams(req: Request) -> Response:
     url = "https://bdfed.stitch.mlbinfra.com/bdfed/transform-mlb-standings?standingsView=division&season=2026&leagueIds=103&leagueIds=104&standingsTypes=regularSeason&date=2026-04-05&sortDivisions=201,202,200,204,205,203&sortLeagues=103,104,115,114&sortSports=1"
+    response = requests.get(url)
+    return Response(response.json())
+
+@api_view(['GET'])
+def nba_teams(req: Request) -> Response:
+    url = "https://stats.nba.com/stats/leaguestandingsv3?GroupBy=div&LeagueID=00&Season=2025-26&SeasonType=Regular%20Season&Section=overall"
+    headers = {
+        "Referer": "https://www.nba.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    }
+    response = requests.get(url, headers=headers)
+    return Response(response.json())
+
+@api_view(['GET'])
+def nhl_teams(req: Request) -> Response:
+    url = f"https://api-web.nhle.com/v1/standings/{datetime.today().strftime('%Y-%m-%d')}"
     response = requests.get(url)
     return Response(response.json())
