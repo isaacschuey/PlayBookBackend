@@ -51,7 +51,8 @@ def mlb_players_pitching(req: Request) -> Response:
 
 @api_view(['GET'])
 def nba_players(req: Request) -> Response:
-    url = "https://stats.nba.com/stats/leaguedashplayerstats?LeagueID=00&MeasureType=Base&PerMode=Totals&Season=2025-26&SeasonType=Regular%20Season&LastNGames=0&Month=0&OpponentTeamID=0&PORound=0&Period=0&TeamID=0&PaceAdjust=N&PlusMinus=N&Rank=N"
+    # position url: https://stats.nba.com/stats/playerindex?College=&Country=&DraftPick=&DraftRound=&DraftYear=&Height=&Historical=1&LeagueID=00&Season=2025-26&SeasonType=Regular%20Season&TeamID=0&Weight=
+    url = "https://stats.nba.com/stats/leaguedashplayerstats?College=&Conference=&Country=&DateFrom=&DateTo=&Division=&DraftPick=&DraftYear=&GameScope=&GameSegment=&Height=&ISTRound=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&Season=2025-26&SeasonSegment=&SeasonType=Regular%20Season&ShotClockRange=&StarterBench=&TeamID=0&VsConference=&VsDivision=&Weight="
     headers = {
         "Referer": "https://www.nba.com",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
