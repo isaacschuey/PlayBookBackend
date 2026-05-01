@@ -87,6 +87,7 @@ def nba_teams(req: Request) -> Response:
 
 @api_view(['GET'])
 def nhl_teams(req: Request) -> Response:
-    url = f"https://api-web.nhle.com/v1/standings/{datetime.today().strftime('%Y-%m-%d')}"
+    # url = f"https://api-web.nhle.com/v1/standings/{datetime.today().strftime('%Y-%m-%d')}"
+    url = "https://api-web.nhle.com/v1/standings/2026-04-17" # Standings cutoff for plyoffs - 04/17 is the last day of the regular season
     response = requests.get(url)
     return Response(response.json())
