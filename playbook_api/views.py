@@ -71,7 +71,7 @@ Team API endpoints
 """
 @api_view(['GET'])
 def mlb_teams(req: Request) -> Response:
-    url = "https://bdfed.stitch.mlbinfra.com/bdfed/transform-mlb-standings?standingsView=division&season=2026&leagueIds=103&leagueIds=104&standingsTypes=regularSeason&date=2026-04-05&sortDivisions=201,202,200,204,205,203&sortLeagues=103,104,115,114&sortSports=1"
+    url = f"https://bdfed.stitch.mlbinfra.com/bdfed/transform-mlb-standings?standingsView=division&season=2026&leagueIds=103&leagueIds=104&standingsTypes=regularSeason&date={datetime.today().strftime('%Y-%m-%d')}&sortDivisions=201,202,200,204,205,203&sortLeagues=103,104,115,114&sortSports=1"
     response = requests.get(url)
     return Response(response.json())
 
